@@ -1,0 +1,32 @@
+a { text-decoration: none }
+table { border-collapse: collapse }
+table,th,td { border: 1px solid #CCCCCC; }
+td { padding: 2px}
+.upper_right {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	padding: 0px;
+}
+.lower_right_fixed {
+	position: fixed;
+	bottom: 0px;
+	right: 0px;
+	padding: 1px;
+}
+.upper_right_fixed {
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	padding: 1px;
+}
+.lower_left_fixed {
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	padding: 1px;
+}
+.white_text {
+	color: white;
+}
+.style1{ border: 1px solid #000000; background-color: #FFFF00; }

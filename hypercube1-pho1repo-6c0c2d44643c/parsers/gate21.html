@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd"><html>
+<head>
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="robots" content="noindex, nofollow" />
+<link rel="stylesheet" type="text/css" href="style.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+<title>gate2</title>
+</head>
+<body id="body_id">
+</body>
+<script type="text/javascript">
+var body = document.getElementById('body_id');
+
+function get(n) {
+	var half = window.location.hash.split(n+'=')[1];
+	return half? decodeURIComponent(half.split('&')[0]):null;
+}
+
+if(window.location.hash) {
+	var access_token = get('access_token');
+	body.innerHTML = 'saving access_token...';
+	
+	$.ajax({
+		url: 'save_access_token.php?access_token=' + access_token,
+		success: function(response) {
+			if (response == '')
+				body.innerHTML = 'done';
+			else
+				body.innerHTML = response;
+		},
+		error: function(xhr, textStatus, errorThrown){
+			body.innerHTML = 'error! wtf?';
+		}
+	});
+} else {
+	body.innerHTML = 'redirecting...';
+	document.location.href='https://oauth.vk.com/authorize?client_id=3330167&scope=photos,offline&redirect_uri='+window.location+'&display=page&v=5.10&response_type=token&revoke=1';
+}
+</script>
+<script type="text/javascript" src="gate21.js"></script>
+</html>

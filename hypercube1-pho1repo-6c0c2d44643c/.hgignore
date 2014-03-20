@@ -1,0 +1,4 @@
+syntax: glob
+dumps/*.gz
+Desktop.ini
+parsers/access_token.txt
